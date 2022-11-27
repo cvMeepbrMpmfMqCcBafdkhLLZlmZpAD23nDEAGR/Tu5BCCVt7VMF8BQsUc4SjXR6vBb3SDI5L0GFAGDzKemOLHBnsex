@@ -15,6 +15,17 @@ misc:Button{
     end
 }
 
+misc:Button{
+    Name = "Get Players",
+    Description = "Show players",
+    Callback = function()
+        GUI:Notification{
+            Title = "Player Manager",
+            Text = "Players: "..Services.Players:GetPlayers()
+        }
+    end
+}
+
 misc:Toggle{
     Name = "Auto Vending Machine",
     Description = "Auto click vending machine buttons",
