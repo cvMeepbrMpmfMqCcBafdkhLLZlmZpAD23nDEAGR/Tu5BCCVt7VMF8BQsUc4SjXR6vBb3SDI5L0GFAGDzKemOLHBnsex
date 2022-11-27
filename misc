@@ -21,7 +21,7 @@ misc:Button{
     Callback = function()
         GUI:Notification{
             Title = "Player Manager",
-            Text = "Players: "..Services.Players:GetPlayers()
+            Text = "Players: "..#Services.Players:GetPlayers()
         }
     end
 }
