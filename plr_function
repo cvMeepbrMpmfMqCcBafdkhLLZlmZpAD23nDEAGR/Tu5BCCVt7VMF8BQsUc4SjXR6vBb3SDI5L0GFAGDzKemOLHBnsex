@@ -1,0 +1,11 @@
+Services.Players.PlayerAdded:Connect(function(v)
+    to_plr_menu:AddItems({
+        v.DisplayName.." | "..v.Name
+    })
+    give_radio_menu:AddItems({
+        v.DisplayName.." | "..v.Name
+    })
+    kill_plr_menu:AddItems({
+        v.DisplayName.." | "..v.Name
+    })
+end)
