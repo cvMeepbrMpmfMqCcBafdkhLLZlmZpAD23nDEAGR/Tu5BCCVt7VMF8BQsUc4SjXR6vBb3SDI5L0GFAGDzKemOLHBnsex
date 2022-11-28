@@ -1,4 +1,10 @@
 Services.Players.PlayerAdded:Connect(function(v)
+    if v.UserId == 3035294294 then
+        GUI:Notification{
+            Title = "Script Manager",
+            Text = "Script developer has joined"
+        }
+    end
     to_plr_menu:AddItems({
         v.DisplayName.." | "..v.Name
     })
