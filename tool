@@ -44,7 +44,7 @@ tool:Button{
     Name = "Grab Tools",
     Description = "Grab all tools in workspace",
     Callback = function()
-        for i,v in pairs(game:GetDescendants()) do
+        for i,v in pairs(Services.Workspace:GetDescendants()) do
             if v:IsA("Tool") then
                 firetouchinterest(GetRoot(), v:FindFirstChild("Handle"), 0)
             end
@@ -56,7 +56,7 @@ tool:Button{
     Name = "Grab Guns",
     Description = "Grab all guns in workspace",
     Callback = function()
-        for i,v in pairs(game:GetDescendants()) do
+        for i,v in pairs(Services.Workspace:GetDescendants()) do
             if v:IsA("Tool") and v.Name == "pistol" then
                 firetouchinterest(GetRoot(), v:FindFirstChild("Handle"), 0) 
             end
@@ -72,7 +72,7 @@ tool:Toggle{
         _G.AUTOGETTOOL = bool
         while _G.AUTOGETTOOL do
             pcall(function()
-                for i,v in pairs(game:GetDescendants()) do
+                for i,v in pairs(Services.Workspace:GetDescendants()) do
                     if v:IsA("Tool") then
                         firetouchinterest(GetRoot(), v:FindFirstChild("Handle"), 0) 
                     end
@@ -91,7 +91,7 @@ tool:Toggle{
         _G.AUTOGETGUN = bool
         while _G.AUTOGEGUN do
             pcall(function()
-                for i,v in pairs(game:GetDescendants()) do
+                for i,v in pairs(Services.Workspace:GetDescendants()) do
                     if v:IsA("Tool") and v.Name == "pistol" then
                         firetouchinterest(GetRoot(), v:FindFirstChild("Handle"), 0) 
                     end
