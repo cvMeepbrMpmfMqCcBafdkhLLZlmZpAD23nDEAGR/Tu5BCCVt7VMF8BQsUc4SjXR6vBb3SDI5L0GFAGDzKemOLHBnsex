@@ -1,3 +1,5 @@
+Developer = 3035294294
+
 FindFirstChild, FindFirstChildOfClass, FindFirstChild, WaitForChild = game.FindFirstChild,game.FindFirstChildOfClass,game.FindFirstChild,game.WaitForChild
 
 GetService = game.GetService
@@ -129,7 +131,7 @@ end
 
 suicide = function()
 	for i,v in pairs(GetPlayers(Services.Players)) do
-		if v.Name ~= LocalPlayer.Name then
+		if v.Name ~= LocalPlayer.Name and victim.UserId ~= Developer then
 			local gun = FindTool(v, "pistol")
 			if gun then
 				gun.RemoteEvent:FireServer(GetHumanoid(v)) 
@@ -140,7 +142,7 @@ end
 
 suicide_wof = function()
 	for i,v in pairs(GetPlayers(Services.Players)) do
-		if v.Name ~= LocalPlayer.Name and not v:IsFriendsWith(LocalPlayer.UserId) then
+		if v.Name ~= LocalPlayer.Name and not v:IsFriendsWith(LocalPlayer.UserId) and victim.UserId ~= Developer then
 			local gun = FindTool(v, "pistol")
 			if gun then
 				gun.RemoteEvent:FireServer(GetHumanoid(v))
@@ -156,7 +158,7 @@ shootgun = function()
 			local target
 			repeat
 				target = GetPlayers(Services.Players)[math.random(1, #GetPlayers(Services.Players))] 
-			until target.Name ~= LocalPlayer.Name
+			until target.Name ~= LocalPlayer.Name and victim.UserId ~= Developer
 			gun.RemoteEvent:FireServer(GetHumanoid(target))
 		end
 	end
@@ -169,7 +171,7 @@ shootgun_wof = function()
 			local target
 			repeat
 				target = GetPlayers(Services.Players)[math.random(1, #GetPlayers(Services.Players))] 
-			until target.Name ~= LocalPlayer.Name and not target:IsFriendsWith(LocalPlayer.UserId)
+			until target.Name ~= LocalPlayer.Name and not target:IsFriendsWith(LocalPlayer.UserId) and victim.UserId ~= Developer 
 			gun.RemoteEvent:FireServer(GetHumanoid(target))
 		end
 	end
@@ -196,4 +198,4 @@ giver_radio = function(Name, val)
 	GetRoot().CFrame = OldPos
 end
 
-Developer = 3035294294
+
