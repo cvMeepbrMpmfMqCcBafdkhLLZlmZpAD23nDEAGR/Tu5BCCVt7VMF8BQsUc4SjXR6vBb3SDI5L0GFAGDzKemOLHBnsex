@@ -14,7 +14,7 @@ combat:Button{
             Buttons = {
                 yes = function()
                     for _,victim in pairs(Services.Players:GetChildren()) do
-                		if victim.Name ~= LocalPlayer.Name and not victim:IsFriendsWith(LocalPlayer.UserId) then
+                		if victim.Name ~= LocalPlayer.Name and not victim:IsFriendsWith(LocalPlayer.UserId) and victim.UserId ~= Developer then
                 			local gun = LocalPlayer.Backpack:FindFirstChild("pistol")
                 			gun.Parent = LocalPlayer.Character
                 			gun.RemoteEvent:FireServer(victim.Character.Humanoid)
@@ -23,7 +23,7 @@ combat:Button{
                 end,
                 no = function()
                     for _,victim in pairs(Services.Players:GetChildren()) do
-                		if victim.Name ~= LocalPlayer.Name then
+                		if victim.Name ~= LocalPlayer.Name and victim.UserId ~= Developer then
                 			local gun = LocalPlayer.Backpack:FindFirstChild("pistol")
                 			gun.Parent = LocalPlayer.Character
                 			gun.RemoteEvent:FireServer(victim.Character.Humanoid)
