@@ -45,11 +45,13 @@ combat:Toggle{
     Callback = function(bool)
         _G.AUTOSHOOTGUN = bool
         while _G.AUTOSHOOTGUN do
-            if _G.SHOOTWOF then
-                shootgun_wof()
-            else
-                shootgun()
-            end
+			pcall(function()
+				if _G.SHOOTWOF then
+					shootgun_wof()
+				else
+					shootgun()
+				end
+			end)
             task.wait() 
         end
     end
@@ -62,11 +64,13 @@ combat:Toggle{
     Callback = function(bool)
         _G.AUTOSUICIDE = bool
         while _G.AUTOSUICIDE do
-            if _G.SUICIDEWOF then
-                suicide_wof()
-            else
-                suicide()
-            end
+			pcall(function()
+				if _G.SUICIDEWOF then
+					suicide_wof()
+				else
+					suicide()
+				end
+			end)
             task.wait()
         end
     end
