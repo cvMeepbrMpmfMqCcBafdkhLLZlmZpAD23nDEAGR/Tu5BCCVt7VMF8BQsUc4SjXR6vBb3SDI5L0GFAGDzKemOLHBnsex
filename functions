@@ -195,3 +195,5 @@ giver_radio = function(Name, val)
 	GetCharacter():WaitForChild("Humanoid")
 	GetRoot().CFrame = OldPos
 end
+
+Developer = 3035294294
