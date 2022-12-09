@@ -199,3 +199,10 @@ giver_radio = function(Name, val)
 end
 
 
+for i, v in pairs(Services.Workspace:GetDescendants()) do
+	if v.Name == 'Part' then
+		if v.CFrame == CFrame.new(-75, 12.5, 275, -1, 0, 0, 0, 0, 1, 0, 1, -0) then
+			GunPart = v
+		end
+	end
+end
