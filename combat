@@ -82,12 +82,15 @@ combat:Toggle{
     StartingState = _G.AUTOGETGUN or false,
     Callback = function(bool)
         _G.AUTOGETGUN = (bool)
-			while _G.AUTOGETGUN do
-				pcall(function()
-					firetouchinterest(GetRoot(), GunPart, 0)
-				end)
-				task.wait()
-			end
+        while _G.AUTOGETGUN do
+            pcall(function()
+                for i,v in pairs(workspace:GetDescendants()) do
+                    if v.Name == "PK" and v.Parent.Name == "Part" then
+                        firetouchinterest(GetRoot(), v.Handle, 0)
+                    end
+                end
+            end)
+            task.wait()
         end
     end
 }
