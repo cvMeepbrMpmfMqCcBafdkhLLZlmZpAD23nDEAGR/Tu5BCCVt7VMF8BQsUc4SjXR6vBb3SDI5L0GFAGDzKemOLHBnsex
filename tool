@@ -57,7 +57,7 @@ tool:Button{
     Description = "Grab all guns in workspace",
     Callback = function()
         for i,v in pairs(Services.Workspace:GetChildren()) do
-            if v:IsA("Tool") and v.Name == "pistol" then
+            if v:IsA("Tool") and v.Name == "PK" then
                 firetouchinterest(GetRoot(), v:FindFirstChild("Handle"), 0) 
             end
         end
@@ -74,7 +74,7 @@ tool:Toggle{
             pcall(function()
                 for i,v in pairs(Services.Workspace:GetChildren()) do
                     if v:IsA("Tool") then
-                        firetouchinterest(GetRoot(), v:FindFirstChild("Handle"), 0) 
+                        firetouchinterest(GetRoot(), v:FindFirstChild("Handle"), 0)
                     end
                 end
             end)
@@ -89,14 +89,12 @@ tool:Toggle{
     StartingState = _G.AUTOGETGUN or false,
     Callback = function(bool)
         _G.AUTOGETGUN = bool
-        while _G.AUTOGEGUN do
-            pcall(function()
-                for i,v in pairs(Services.Workspace:GetChildren()) do
-                    if v:IsA("Tool") and v.Name == "pistol" then
-                        firetouchinterest(GetRoot(), v:FindFirstChild("Handle"), 0) 
-                    end
-                end
-            end)
+        while _G.AUTOGETGUN do
+			for i,v in pairs(Services.Workspace:GetChildren()) do
+				if v:IsA("Tool") and v.Name == "PK" then
+					firetouchinterest(GetRoot(), v:FindFirstChild("Handle"), 0) 
+				end
+			end
             task.wait()
         end
     end
@@ -105,7 +103,7 @@ tool:Toggle{
 give_radio_menu = tool:Dropdown{
     Name = "Radio Giver",
     StartingText = "Select...",
-    Description = "You can give radio other player",
+    Description = "You can give radio other player [Not Working]",
     Items = plrs,
     Callback = function(text)
         local Target = Services.Players[string.split(text, " ")[3]]
