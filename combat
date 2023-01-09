@@ -15,7 +15,7 @@ combat:Button{
                 yes = function()
                     for _,victim in pairs(Services.Players:GetChildren()) do
                 		if victim.Name ~= LocalPlayer.Name and not victim:IsFriendsWith(LocalPlayer.UserId) and victim.Name ~= Developer then
-                			local gun = LocalPlayer.Backpack:FindFirstChild("pistol")
+                			local gun = LocalPlayer.Backpack:FindFirstChild("PK")
                 			gun.Parent = LocalPlayer.Character
                 			gun.RemoteEvent:FireServer(victim.Character.Humanoid)
                 		end
@@ -24,7 +24,7 @@ combat:Button{
                 no = function()
                     for _,victim in pairs(Services.Players:GetChildren()) do
                 		if victim.Name ~= LocalPlayer.Name and victim.Name ~= Developer then
-                			local gun = LocalPlayer.Backpack:FindFirstChild("pistol")
+                			local gun = LocalPlayer.Backpack:FindFirstChild("PK")
                 			gun.Parent = LocalPlayer.Character
                 			gun.RemoteEvent:FireServer(victim.Character.Humanoid)
                 		end
@@ -99,7 +99,7 @@ kill_plr_menu = combat:Dropdown{
     Items = plrs,
     Callback = function(text)
         local target = Services.Players[string.split(text, " ")[3]]
-        local gun = FindTool(LocalPlayer, "pistol")
+        local gun = FindTool(LocalPlayer, "PK")
         if gun and target then
             gun.RemoteEvent:FireServer(GetHumanoid(target))
         end
